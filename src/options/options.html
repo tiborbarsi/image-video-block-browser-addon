@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      label {
+        use-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h3>Settings</h3>
+    <hr>
+    <p><label><input id="imgBlock" type="checkbox">Block images (Block downloading)</label></p>
+    <p><label><input id="videoHide" type="checkbox">Hide videos (HTML5)</label></p>
+    <p><label><input id="svgHide" type="checkbox">Hide svgs (icons, charts, YT buttons, ...)</label></p>
+    <p><label><input id="canvasHide" type="checkbox">Hide canvas (html5 games, ...)</label></p>
+
+    <script src="options.js"></script>
+
+  </body>
+</html>
