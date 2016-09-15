@@ -9,7 +9,7 @@ Features:
 - Hide SVGs (Icons, Charts, youtube player buttons, ...)
 - Hide CANVAS (html5 games, ...)
 
-**Get it** for [firefox]()
+**Get it** for [firefox](https://addons.mozilla.org/en-US/firefox/addon/image-video-block/)
 
 
 ![](/images/settings.png "Settings")
