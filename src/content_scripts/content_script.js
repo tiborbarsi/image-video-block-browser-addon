@@ -1,7 +1,7 @@
 // content_script.js
 
 
-// Hides IMG, VIDEO, SVG, CANVAS
+// Hides IMG, VIDEO, FLASH, SVG, CANVAS
 chrome.storage.local.get(function(data) {
   var style = document.createElement('style');
 
@@ -16,6 +16,9 @@ chrome.storage.local.get(function(data) {
 
   if (data.canvasHide)
     style.innerText += 'canvas {opacity: 0 !important;}';
+
+  if (data.flashHide)
+    style.innerText += '[type="application/x-shockwave-flash"] {opacity: 0 !important;}';
 
   document.head.appendChild(style);
 });
