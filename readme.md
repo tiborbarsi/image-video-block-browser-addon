@@ -10,8 +10,13 @@ Features:
 - Hide SVGs (Icons, Charts, youtube player buttons, ...)
 - Hide CANVAS (html5 games, ...)
 
-**Get it** for [firefox](https://addons.mozilla.org/en-US/firefox/addon/image-video-block/)
 
+## Download
+
+*for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/image-video-block/)*
+
+
+## Images
 
 ![](/images/settings.png "Settings")
 
@@ -20,3 +25,14 @@ Features:
 ![](/images/yt_hide_video.png "Hides HTML5 Videos on YouTube")
 
 ![](/images/yt_image_block.png "Hides images on YouTube")
+
+
+## Changelog
+
+**1.1**
+
+- Hide Flash
+
+**1.0.1**
+
+- Fix: `innerHTML` to `innerText`
