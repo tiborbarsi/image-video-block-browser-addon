@@ -6,16 +6,16 @@ chrome.storage.local.get(function(data) {
   var style = document.createElement('style');
 
   if (data.imgBlock)
-    style.innerHTML += 'img {opacity: 0 !important;}';
+    style.innerText += 'img {opacity: 0 !important;}';
 
   if (data.videoHide)
-    style.innerHTML += 'video {opacity: 0 !important;}';
+    style.innerText += 'video {opacity: 0 !important;}';
 
   if (data.svgHide)
-    style.innerHTML += 'svg {opacity: 0 !important;}';
+    style.innerText += 'svg {opacity: 0 !important;}';
 
   if (data.canvasHide)
-    style.innerHTML += 'canvas {opacity: 0 !important;}';
+    style.innerText += 'canvas {opacity: 0 !important;}';
 
   document.head.appendChild(style);
 });
