@@ -29,6 +29,9 @@ Features:
 
 ## Changelog
 
+**1.2**
+- Hide CSS Background Image
+
 **1.1**
 
 - Hide Flash

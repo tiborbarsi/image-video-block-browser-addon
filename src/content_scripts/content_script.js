@@ -6,7 +6,8 @@ chrome.storage.local.get(function(data) {
   var style = document.createElement('style');
 
   if (data.imgBlock)
-    style.innerText += 'img {opacity: 0 !important;}';
+    style.innerText += 'img {opacity: 0 !important;}' +
+        '* {background-image: none !important;}';
 
   if (data.videoHide)
     style.innerText += 'video {opacity: 0 !important;}';
