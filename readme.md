@@ -29,6 +29,9 @@ Features:
 
 ## Changelog
 
+**1.3**
+- Fix: Not working in the new tabs(loaded in background)
+
 **1.2**
 - Hide CSS Background Image
 
