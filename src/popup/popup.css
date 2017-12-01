@@ -1,0 +1,75 @@
+/* popup.css */
+
+body {
+    margin: 0px;
+    width: 300px;
+
+    use-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.title {
+    padding: 20px;
+
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: hsl(200, 100%, 50%);
+    color: hsl(0, 0%, 100%);
+    cursor: default;
+}
+
+.options {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.btn {
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+
+    text-align: center;
+    font-family: sans-serif;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 30%);
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-color: hsl(0, 0%, 30%);
+}
+
+.btn.active {
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(200, 100%, 50%);
+    border-color: hsl(200, 100%, 50%);
+}
+
+.message {
+    padding-left: 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: hsl(0, 0%, 30%);
+}
+
+.footer {
+    margin-top: 10px;
+    padding: 5px;
+    overflow: auto;
+}
+
+.footer a {
+    float: right;
+    text-decoration: none;
+    font-size: 14px;
+    color: hsl(0, 0%, 20%);
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

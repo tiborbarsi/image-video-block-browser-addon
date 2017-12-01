@@ -5,10 +5,10 @@ A Browser add-on that **Blocks Images** and **Hides VIDEO(html5), FLASH, SVG and
 Features:
 
 - Block Images (Does Not download)
-- Hide VIDEOs (HTML5 videos)
-- Hide FLASH (Flash videos, games, ...)
-- Hide SVGs (Icons, Charts, youtube player buttons, ...)
-- Hide CANVAS (html5 games, ...)
+- Hide VIDEO (HTML5 videos)
+- Hide FLASH content
+- Hide CANVAS (HTML5 games, ...)
+- Hide SVG (Icons, YT player buttons, ...)
 
 
 ## Download
@@ -18,7 +18,7 @@ Features:
 
 ## Images
 
-![](/images/settings.png "Settings")
+![](/images/popup.png "Browser toolbar button")
 
 ![](/images/gi_block_images.png "Blocks images on Google Images")
 
@@ -28,6 +28,9 @@ Features:
 
 
 ## Changelog
+
+**2.0**
+- Feat: Browser toolbar button
 
 **1.3**
 - Fix: Not working in the new tabs(loaded in background)
