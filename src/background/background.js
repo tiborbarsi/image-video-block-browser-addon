@@ -23,15 +23,4 @@ var blocker = {
 };
 
 
-/* Browser Action */
-var button = {
-  init: function() {
-    chrome.browserAction.onClicked.addListener(function(tab) {
-      chrome.runtime.openOptionsPage();
-    });
-  }
-};
-
-
 blocker.init();
-button.init();

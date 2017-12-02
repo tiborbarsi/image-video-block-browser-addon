@@ -29,6 +29,9 @@ Features:
 
 ## Changelog
 
+**2.1**
+- Feat: Toggle functionality, bugfixes
+
 **2.0**
 - Feat: Browser toolbar button
 
