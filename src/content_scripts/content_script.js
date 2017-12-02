@@ -1,25 +1,43 @@
 // content_script.js
 
 
-// Hides IMG, VIDEO, FLASH, SVG, CANVAS
-chrome.storage.local.get(function(data) {
-  var style = document.createElement('style');
+var StyleUpdater = {
+  styleEl: null,
 
-  if (data.imgBlock)
-    style.innerText += 'img {opacity: 0 !important;}' +
-        '* {background-image: none !important;}';
+  update: function() {
+    var self = this;
 
-  if (data.videoHide)
-    style.innerText += 'video {opacity: 0 !important;}';
+    chrome.storage.local.get(function(data) {
+      var style = '';
 
-  if (data.svgHide)
-    style.innerText += 'svg {opacity: 0 !important;}';
+      if (data.imgBlock)
+        style += 'img {opacity: 0 !important;}' +
+          '* {background-image: none !important;}';
 
-  if (data.canvasHide)
-    style.innerText += 'canvas {opacity: 0 !important;}';
+      if (data.videoHide)
+        style += 'video {opacity: 0 !important;}';
 
-  if (data.flashHide)
-    style.innerText += '[type="application/x-shockwave-flash"] {opacity: 0 !important;}';
+      if (data.svgHide)
+        style += 'svg {opacity: 0 !important;}';
 
-  document.head.appendChild(style);
-});
+      if (data.canvasHide)
+        style += 'canvas {opacity: 0 !important;}';
+
+      if (data.flashHide)
+        style += '[type="application/x-shockwave-flash"] {opacity: 0 !important;}';
+
+      self.styleEl.innerText = style;
+    });
+  },
+
+  init: function() {
+    this.styleEl = document.createElement('style');
+    document.head.appendChild(this.styleEl);
+
+    chrome.storage.onChanged.addListener(this.update.bind(this));
+    this.update();
+  }
+};
+
+
+StyleUpdater.init();
