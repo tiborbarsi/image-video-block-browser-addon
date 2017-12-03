@@ -18,7 +18,7 @@ var blocker = {
     var self = this;
     chrome.webRequest.onBeforeRequest.addListener(function(details) {
       return {cancel: self.imgBlock};
-    }, {urls: ['<all_urls>'], types: ['image']}, ['blocking']);
+    }, {urls: ['<all_urls>'], types: ['image', 'imageset']}, ['blocking']);
   }
 };
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Image Video Block",
-  "version": "2.1",
+  "version": "2.1.1",
   "description": "Blocks Images and Hides VIDEO, FLASH, SVG and CANVAS elements. Does NOT download images.",
   "homepage_url": "https://github.com/tiborbarsi/image-video-block-browser-addon",
   "icons": {
@@ -34,7 +34,8 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content_scripts/content_script.js"],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "all_frames": true
     }
   ],
 
