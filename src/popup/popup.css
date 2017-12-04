@@ -2,7 +2,7 @@
 
 body {
     margin: 0px;
-    width: 300px;
+    width: 270px;
 
     use-select: none;
     -moz-user-select: none;
@@ -50,15 +50,8 @@ body {
     border-color: hsl(200, 100%, 50%);
 }
 
-.message {
-    padding-left: 20px;
-    font-size: 14px;
-    font-style: italic;
-    color: hsl(0, 0%, 30%);
-}
-
 .footer {
-    margin-top: 10px;
+    margin-top: 14px;
     padding: 5px;
     overflow: auto;
 }
