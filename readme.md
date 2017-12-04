@@ -29,6 +29,12 @@ Features:
 
 ## Changelog
 
+**2.1.2**
+- Feat: Download images on unblock, refactor
+
+**2.1.1**
+- Fix: Not working in iframes, imageset blocking
+
 **2.1**
 - Feat: Toggle functionality, bugfixes
 
