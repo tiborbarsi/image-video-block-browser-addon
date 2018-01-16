@@ -12,7 +12,8 @@
     "storage",
     "<all_urls>",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "menus"
   ],
 
   "browser_action": {
