@@ -9,9 +9,6 @@ function onCreated() {
 
 var contextMenus = {
   menuItems: [
-    {  title: "Block Image", popupId: "imgBlock", checked: false }
-  ],
-  menuItems: [
     {  title: "Block Image", popupId: "imgBlock", checked: false },
     {  title: "Hide Videos", popupId: "videoHide", checked: false },
     {  title: "Hide Flash", popupId: "flashHide", checked: false },
