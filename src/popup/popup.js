@@ -8,6 +8,14 @@ var $ = {
             el.classList.remove(className);
         else
             el.classList.add(className);
+    },
+    addClass: function(el, className) {
+        if (!(el.classList.contains(className)))
+            el.classList.add(className);
+    },
+    removeClass: function(el, className) {
+        if (el.classList.contains(className))
+            el.classList.remove(className);
     }
 };
 
@@ -29,6 +37,19 @@ var options = {
     chrome.storage.local.set(data);
   },
 
+  update: function() {
+    var self = this
+    chrome.storage.local.get(function(data) {
+      for (var el in self.els) {
+        if (data[self.els[el].id]) {
+          $.addClass(self.els[el], "active");
+        } else {
+          $.removeClass(self.els[el], "active");
+        }
+      }
+    });
+  },
+
   init: function() {
     var self = this;
     chrome.storage.local.get(function(data) {
@@ -39,6 +60,8 @@ var options = {
 
     for (var el in this.els)
       this.els[el].addEventListener('click', this.set);
+
+    chrome.storage.onChanged.addListener(this.update.bind(this));
   }
 };
 

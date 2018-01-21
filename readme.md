@@ -26,6 +26,7 @@ Features:
 
 ![](/images/yt_image_block.png "Hides images on YouTube")
 
+![](/images/context_menus.png "Context Menus"
 
 ## Changelog
 
