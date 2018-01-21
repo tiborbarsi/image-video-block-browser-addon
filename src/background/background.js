@@ -1,6 +1,8 @@
 // background.js
+// jshint esversion: 6
 
-/* context menus */
+
+/* Context Menus */
 function onCreated() {
   if (browser.runtime.lastError) {
     console.log(`Error: ${browser.runtime.lastError}`);
@@ -17,7 +19,7 @@ var contextMenus = {
   ],
 
   createMenuItems: function() {
-    var self = this
+    var self = this;
     chrome.storage.local.get(function(data) {
       for (var i in self.menuItems) {
         var item = self.menuItems[i];
@@ -33,11 +35,11 @@ var contextMenus = {
     });
 
     // initialize check status
-    self.onStorageChange()
+    self.onStorageChange();
   },
 
   onStorageChange: function() {
-    var self = this
+    var self = this;
     chrome.storage.local.get(function(data) {
       for (var i in self.menuItems) {
         var item = self.menuItems[i];
@@ -53,14 +55,14 @@ var contextMenus = {
   },
 
   onClick: function(info, tab) {
-    var self = this
+    var self = this;
 
     var data = {};
     for (var i in this.menuItems) {
       var item = this.menuItems[i];
       if ((info.menuItemId == "menu#"+item.popupId)) {
-        item.checked = !item.checked
-        data[item.popupId] = item.checked
+        item.checked = !item.checked;
+        data[item.popupId] = item.checked;
       }
     }
 
@@ -73,7 +75,8 @@ var contextMenus = {
     browser.menus.onClicked.addListener(self.onClick.bind(self));
     chrome.storage.onChanged.addListener(self.onStorageChange.bind(self));
   }
-}
+};
+
 
 /* Blocker */
 var blocker = {
@@ -96,5 +99,7 @@ var blocker = {
   }
 };
 
+
+// Init
 contextMenus.init();
 blocker.init();
