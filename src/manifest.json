@@ -21,9 +21,9 @@
     "default_icon": "icons/32_black.png",
     "default_popup": "popup/popup.html",
     "theme_icons": [{
-        "light": "icons/32_black.png",
-        "dark": "icons/32_white.png",
-        "size": 32
+      "light": "icons/32_white.png",
+      "dark": "icons/32_black.png",
+      "size": 32
     }]
   },
 
