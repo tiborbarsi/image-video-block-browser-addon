@@ -26,9 +26,18 @@ Features:
 
 ![](/images/yt_image_block.png "Hides images on YouTube")
 
-![](/images/context_menus.png "Context Menus"
+![](/images/context_menus.png "Context Menus")
+
+
+## Contributors
+
+[Mo Zhonghua](https://github.com/MoZhonghua)
+
 
 ## Changelog
+
+**2.2**
+- Feat: Context Menus
 
 **2.1.2**
 - Feat: Download images on unblock, refactor

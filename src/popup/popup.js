@@ -38,7 +38,7 @@ var options = {
   },
 
   update: function() {
-    var self = this
+    var self = this;
     chrome.storage.local.get(function(data) {
       for (var el in self.els) {
         if (data[self.els[el].id]) {
@@ -66,4 +66,5 @@ var options = {
 };
 
 
+// Init
 options.init();
