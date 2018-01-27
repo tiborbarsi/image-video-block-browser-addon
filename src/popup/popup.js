@@ -2,21 +2,16 @@
 
 
 var $ = {
-    query: document.querySelector.bind(document),
-    toggleClass: function(el, className) {
-        if (el.classList.contains(className))
-            el.classList.remove(className);
-        else
-            el.classList.add(className);
-    },
-    addClass: function(el, className) {
-        if (!(el.classList.contains(className)))
-            el.classList.add(className);
-    },
-    removeClass: function(el, className) {
-        if (el.classList.contains(className))
-            el.classList.remove(className);
-    }
+  query: document.querySelector.bind(document),
+  toggleClass: function(el, className) {
+    el.classList.toggle(className);
+  },
+  addClass: function(el, className) {
+    el.classList.add(className);
+  },
+  removeClass: function(el, className) {
+    el.classList.remove(className);
+  }
 };
 
 
@@ -42,9 +37,9 @@ var options = {
     chrome.storage.local.get(function(data) {
       for (var el in self.els) {
         if (data[self.els[el].id]) {
-          $.addClass(self.els[el], "active");
+          $.addClass(self.els[el], 'active');
         } else {
-          $.removeClass(self.els[el], "active");
+          $.removeClass(self.els[el], 'active');
         }
       }
     });
