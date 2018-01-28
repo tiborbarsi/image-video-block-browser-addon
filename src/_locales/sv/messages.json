@@ -1,0 +1,58 @@
+{
+  "extensionName": {
+    "message": "Image Video Block",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Blockerar bilder och döljer elementen VIDEO, FLASH, SVG och CANVAS. Bilder laddas INTE ned.",
+    "description": "Description of the extension."
+  },
+  "optionsPageText": {
+    "message": "Använd knappen i verktygsfältet.",
+    "description": "Text on the options page."
+  },
+  "leaveReview": {
+    "message": "Lämna en recension",
+    "description": "Link to the addon's web page."
+  },
+  "imgBlockText": {
+    "message": "Blockera bilder",
+    "description": "Text of the option."
+  },
+  "imgBlockTooltip": {
+    "message": "Blockerar bilder från att laddas ned",
+    "description": "Tooltip of the option."
+  },
+  "videoHideText": {
+    "message": "Dölj videor",
+    "description": "Text of the option."
+  },
+  "videoHideTooltip": {
+    "message": "Döljer videor (HTML5)",
+    "description": "Tooltip of the option."
+  },
+  "flashHideText": {
+    "message": "Dölj Flash",
+    "description": "Text of the option."
+  },
+  "flashHideTooltip": {
+    "message": "Döljer Flash-innehåll (spel, videor, etc.)",
+    "description": "Tooltip of the option."
+  },
+  "canvasHideText": {
+    "message": "Dölj canvas",
+    "description": "Text of the option."
+  },
+  "canvasHideTooltip": {
+    "message": "Döljer canvas (HTML5-spel, kartor, pdf, etc.)",
+    "description": "Tooltip of the option."
+  },
+  "svgHideText": {
+    "message": "Dölj SVG",
+    "description": "Text of the option."
+  },
+  "svgHideTooltip": {
+    "message": "Döljer SVG (ikoner, mediauppspelningsknappar, etc.)",
+    "description": "Tooltip of the option."
+  }
+}
