@@ -36,6 +36,9 @@ Features:
 
 ## Changelog
 
+**2.2.1**
+- Support for multiple languages (pull request your translations)
+
 **2.2**
 - Feat: Context Menus
 
