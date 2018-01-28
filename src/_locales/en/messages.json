@@ -1,0 +1,58 @@
+{
+  "extensionName": {
+    "message": "Image Video Block",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Blocks Images and Hides VIDEO, FLASH, SVG and CANVAS elements. Does NOT download images.",
+    "description": "Description of the extension."
+  },
+  "optionsPageText": {
+    "message": "Use the toolbar button.",
+    "description": "Text on the options page."
+  },
+  "leaveReview": {
+    "message": "Leave a review",
+    "description": "Link to the addon's web page."
+  },
+  "imgBlockText": {
+    "message": "Block Images",
+    "description": "Text of the option."
+  },
+  "imgBlockTooltip": {
+    "message": "Blocks image downloading",
+    "description": "Tooltip of the option."
+  },
+  "videoHideText": {
+    "message": "Hide Videos",
+    "description": "Text of the option."
+  },
+  "videoHideTooltip": {
+    "message": "Hides videos (html5)",
+    "description": "Tooltip of the option."
+  },
+  "flashHideText": {
+    "message": "Hide Flash",
+    "description": "Text of the option."
+  },
+  "flashHideTooltip": {
+    "message": "Hides flash content (games, videos, etc.)",
+    "description": "Tooltip of the option."
+  },
+  "canvasHideText": {
+    "message": "Hide Canvas",
+    "description": "Text of the option."
+  },
+  "canvasHideTooltip": {
+    "message": "Hides canvas (html5 games, maps, pdf, etc.)",
+    "description": "Tooltip of the option."
+  },
+  "svgHideText": {
+    "message": "Hide SVGs",
+    "description": "Text of the option."
+  },
+  "svgHideTooltip": {
+    "message": "Hides svg (icons, player buttons, etc.)",
+    "description": "Tooltip of the option."
+  }
+}
