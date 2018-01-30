@@ -31,16 +31,20 @@ Features:
 
 ## Contributors
 
-[Mo Zhonghua](https://github.com/MoZhonghua)
+- [Mo Zhonghua](https://github.com/MoZhonghua)
+- [A. Regnander](https://github.com/Regnander)
 
 
 ## Changelog
+
+**2.2.2**
+- Swedish language translation (by Regnander)
 
 **2.2.1**
 - Support for multiple languages (pull request your translations)
 
 **2.2**
-- Feat: Context Menus
+- Feat: Context Menus (by Zhonghua)
 
 **2.1.2**
 - Feat: Download images on unblock, refactor
