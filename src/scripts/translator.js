@@ -9,19 +9,19 @@ class Translator
     this._regex = /__MSG_([^_]+)__/;
     this._attrs = ['title'];  // HTML attrs to translate.
 
-    this._replaceAll();
+    this._translatePage();
   }
 
-  _replaceAll()
+  _translatePage()
   {
     var els = document.body.querySelectorAll('*');
     for (var i = 0; i < els.length; i++) {
-      this._replaceAttrs(els[i]);
-      this._replaceText(els[i]);
+      this._translateElementAttributes(els[i]);
+      this._translateElementTextNodes(els[i]);
     }
   }
 
-  _replaceAttrs(el)
+  _translateElementAttributes(el)
   {
     for (var i = 0; i < this._attrs.length; i++) {
       var attr = this._attrs[i];
@@ -31,7 +31,7 @@ class Translator
     }
   }
 
-  _replaceText(el)
+  _translateElementTextNodes(el)
   {
     var childNodes = Array.from(el.childNodes);
     var textNodes = childNodes.filter(node => node.nodeType === Node.TEXT_NODE);
@@ -42,15 +42,15 @@ class Translator
     }
   }
 
-  _translate(content)
+  _translate(str)
   {
     var msgKeyArr, msgKey, msg;
-    while ((msgKeyArr = this._regex.exec(content)) !== null) {
+    while ((msgKeyArr = this._regex.exec(str)) !== null) {
       msgKey = msgKeyArr[1];
       msg = browser.i18n.getMessage(msgKey);
-      content = content.replace('__MSG_' + msgKey + '__', msg);
+      str = str.replace('__MSG_' + msgKey + '__', msg);
     }
-    return content;
+    return str;
   }
 }
 
