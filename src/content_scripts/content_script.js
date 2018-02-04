@@ -11,28 +11,23 @@ class ContentManager
     this.imageLoader = new ImageLoader();
 
     document.head.appendChild(this.styleEl);
+    chrome.storage.onChanged.addListener(this._onStorageChange.bind(this));
+    browser.runtime.onMessage.addListener(this._onMessage.bind(this));
 
-    chrome.storage.onChanged.addListener(this.onChange.bind(this));
-    this.onChange();  // Initial
+    this._onStorageChange();  // Initial
   }
 
-  onChange()
+  _onStorageChange()
   {
     var self = this;
     chrome.storage.local.get(function(data) {
-      self._setStyle(data);
-      self._loadImagesIfNeeded(data);
+      self.styleEl.innerText = self.styleGenerator.generate(data);
     });
   }
 
-  _setStyle(data)
+  _onMessage(data)
   {
-    this.styleEl.innerText = this.styleGenerator.generate(data);
-  }
-
-  _loadImagesIfNeeded(data)
-  {
-    if (!data.imgBlock && document.readyState === 'complete')
+    if (data.downloadImages)
       this.imageLoader.loadImages(document.images);
   }
 }
