@@ -23,6 +23,10 @@
     "message": "Blocks image downloading",
     "description": "Tooltip of the option."
   },
+  "downloadImagesTooltip": {
+    "message": "Download blocked images on this page",
+    "description": "Tooltip of the download images button"
+  },
   "videoHideText": {
     "message": "Hide Videos",
     "description": "Text of the option."

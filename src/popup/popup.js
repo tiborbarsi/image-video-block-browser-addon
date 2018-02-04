@@ -1,65 +1,79 @@
 // popup.js
+// jshint esversion: 6
 
 
-var $ = {
-  query: document.querySelector.bind(document),
-  toggleClass: function(el, className) {
-    el.classList.toggle(className);
-  },
-  addClass: function(el, className) {
-    el.classList.add(className);
-  },
-  removeClass: function(el, className) {
-    el.classList.remove(className);
+var $ = document.querySelector.bind(document);
+
+
+class Popup
+{
+  constructor()
+  {
+    this.elements = {
+      'imgBlock': $('#imgBlock'),
+      'videoHide': $('#videoHide'),
+      'flashHide': $('#flashHide'),
+      'canvasHide': $('#canvasHide'),
+      'svgHide': $('#svgHide'),
+      'downloadImgs': $('#downloadImgs')
+    };
+
+    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
+    document.body.addEventListener('click', this._onElementClick.bind(this));
+
+    this._onStorageChange();  // Initial
   }
-};
 
+  _onStorageChange()
+  {
+    this._updateElementState();
+  }
 
-var options = {
-  els: {
-    imgBlock: $.query('#imgBlock'),
-    videoHide: $.query('#videoHide'),
-    flashHide: $.query('#flashHide'),
-    svgHide: $.query('#svgHide'),
-    canvasHide: $.query('#canvasHide')
-  },
+  _onElementClick(event)
+  {
+    var elId = event.target.id;
 
-  set: function(e) {
-    var data = {};
-    data[e.target.id] = !e.target.classList.contains('active');
-    $.toggleClass(e.target, 'active');
+    if (!this.elements[elId])
+      return;
 
-    chrome.storage.local.set(data);
-  },
+    if (elId === 'downloadImgs')
+      return this._requestDownload();
 
-  update: function() {
+    this._toggleOptionState(elId);
+  }
+
+  _updateElementState()
+  {
     var self = this;
     chrome.storage.local.get(function(data) {
-      for (var el in self.els) {
-        if (data[self.els[el].id]) {
-          $.addClass(self.els[el], 'active');
-        } else {
-          $.removeClass(self.els[el], 'active');
-        }
-      }
+      for (var id in self.elements)
+        if (data[id])
+          self.elements[id].classList.add('active');
+        else
+          self.elements[id].classList.remove('active');
     });
-  },
+  }
 
-  init: function() {
-    var self = this;
-    chrome.storage.local.get(function(data) {
-      Object.keys(self.els).forEach(function(key) {
-        if (data[key]) self.els[key].classList.add('active');
+  _toggleOptionState(optionId)
+  {
+    chrome.storage.local.get(function(oldData) {
+      var newData = {};
+
+      newData[optionId] = !oldData[optionId];
+      chrome.storage.local.set(newData);
+    });
+  }
+
+  _requestDownload()
+  {
+    // Send request to content_script.js
+    browser.tabs.query({currentWindow: true, active: true})
+      .then(tabs => {
+        browser.tabs.sendMessage(tabs[0].id, {downloadImages: true});
       });
-    });
-
-    for (var el in this.els)
-      this.els[el].addEventListener('click', this.set);
-
-    chrome.storage.onChanged.addListener(this.update.bind(this));
   }
-};
+}
 
 
 // Init
-options.init();
+new Popup();
