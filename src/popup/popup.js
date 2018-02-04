@@ -44,23 +44,22 @@ class Popup
 
   _updateElementState()
   {
-    var self = this;
-    chrome.storage.local.get(function(data) {
-      for (var id in self.elements)
+    browser.storage.local.get().then(data => {
+      for (var id in this.elements)
         if (data[id])
-          self.elements[id].classList.add('active');
+          this.elements[id].classList.add('active');
         else
-          self.elements[id].classList.remove('active');
+          this.elements[id].classList.remove('active');
     });
   }
 
   _toggleOptionState(optionId)
   {
-    chrome.storage.local.get(function(oldData) {
+    browser.storage.local.get().then(oldData => {
       var newData = {};
 
       newData[optionId] = !oldData[optionId];
-      chrome.storage.local.set(newData);
+      browser.storage.local.set(newData);
     });
   }
 
