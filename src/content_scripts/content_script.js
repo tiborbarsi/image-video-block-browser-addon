@@ -11,7 +11,7 @@ class ContentManager
     this.imageLoader = new ImageLoader();
 
     document.head.appendChild(this.styleEl);
-    chrome.storage.onChanged.addListener(this._onStorageChange.bind(this));
+    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
     browser.runtime.onMessage.addListener(this._onMessage.bind(this));
 
     this._onStorageChange();  // Initial
@@ -19,9 +19,8 @@ class ContentManager
 
   _onStorageChange()
   {
-    var self = this;
-    chrome.storage.local.get(function(data) {
-      self.styleEl.innerText = self.styleGenerator.generate(data);
+    browser.storage.local.get().then(data => {
+      this.styleEl.textContent = this.styleGenerator.generate(data);
     });
   }
 
