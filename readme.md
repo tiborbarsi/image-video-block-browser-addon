@@ -37,6 +37,9 @@ Features:
 
 ## Changelog
 
+**2.3**
+- Feat: Download blocked images button
+
 **2.2.2**
 - Swedish language translation (by Regnander)
 
