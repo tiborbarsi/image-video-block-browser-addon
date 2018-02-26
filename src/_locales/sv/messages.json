@@ -23,6 +23,10 @@
     "message": "Blockerar bilder från att laddas ned",
     "description": "Tooltip of the option."
   },
+    "downloadImagesTooltip": {
+    "message": "Ladda ned blockerade bilder på denna sida",
+    "description": "Tooltip of the download images button"
+  },
   "videoHideText": {
     "message": "Dölj videor",
     "description": "Text of the option."
