@@ -10,6 +10,14 @@ Features:
 - Hide CANVAS (HTML5 games, ...)
 - Hide SVG (Icons, YT player buttons, ...)
 
+Keyboard Shortcuts:
+
+- *Ctrl+1* Toggle the image block option
+- *Ctrl+2* Toggle the video hide option
+- *Ctrl+3* Toggle the flash hide option
+- *Ctrl+4* Toggle the svg hide option
+- *Ctrl+5* Toggle the canvas hide option
+
 
 ## Download
 
@@ -36,6 +44,9 @@ Features:
 
 
 ## Changelog
+
+**2.4**
+- Feat: Keyboard Shortcuts
 
 **2.3.1**
 - Swedish translation updates (by Regnander)

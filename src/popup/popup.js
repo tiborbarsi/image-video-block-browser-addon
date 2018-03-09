@@ -18,6 +18,9 @@ class Popup
       'downloadImgs': $('#downloadImgs')
     };
 
+    this._optionStateChanger = new OptionStateChanger();
+    this._imageDownloadRequester = new ImageDownloadRequester();
+
     browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
     document.body.addEventListener('click', this._onElementClick.bind(this));
 
@@ -37,9 +40,9 @@ class Popup
       return;
 
     if (elId === 'downloadImgs')
-      return this._requestDownload();
+      return this._imageDownloadRequester.requestDownload();
 
-    this._toggleOptionState(elId);
+    this._optionStateChanger.toggleOption(elId);
   }
 
   _updateElementState()
@@ -52,8 +55,12 @@ class Popup
           this.elements[id].classList.remove('active');
     });
   }
+}
 
-  _toggleOptionState(optionId)
+
+class OptionStateChanger
+{
+  toggleOption(optionId)
   {
     browser.storage.local.get().then(oldData => {
       var newData = {};
@@ -62,8 +69,12 @@ class Popup
       browser.storage.local.set(newData);
     });
   }
+}
 
-  _requestDownload()
+
+class ImageDownloadRequester
+{
+  requestDownload()
   {
     // Send request to content_script.js
     browser.tabs.query({currentWindow: true, active: true})

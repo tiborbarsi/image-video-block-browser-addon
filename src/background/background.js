@@ -100,6 +100,38 @@ var blocker = {
 };
 
 
+/* Keyboard Command Handler */
+class KeyboardCommandHandler
+{
+  constructor()
+  {
+    this._optionStateChanger = new OptionStateChanger();
+
+    browser.commands.onCommand.addListener(this._onCommand.bind(this));
+  }
+
+  _onCommand(command)
+  {
+    this._optionStateChanger.toggleOption(command);
+  }
+}
+
+
+class OptionStateChanger
+{
+  toggleOption(optionId)
+  {
+    browser.storage.local.get().then(oldData => {
+      var newData = {};
+
+      newData[optionId] = !oldData[optionId];
+      browser.storage.local.set(newData);
+    });
+  }
+}
+
+
 // Init
 contextMenus.init();
 blocker.init();
+new KeyboardCommandHandler();
