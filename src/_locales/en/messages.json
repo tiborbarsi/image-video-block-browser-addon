@@ -15,6 +15,10 @@
     "message": "Leave a review",
     "description": "Link to the addon's web page."
   },
+  "closeButton": {
+    "message": "Close",
+    "description": "Close button of the addon's popup"
+  },
   "imgBlockText": {
     "message": "Block Images",
     "description": "Text of the option."

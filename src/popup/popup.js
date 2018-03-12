@@ -5,11 +5,14 @@
 var $ = document.querySelector.bind(document);
 
 
-class Popup
+class OptionManager
 {
   constructor()
   {
-    this.elements = {
+    this._optionStateChanger = new OptionStateChanger();
+    this._imageDownloadRequester = new ImageDownloadRequester();
+
+    this._optionElements = {
       'imgBlock': $('#imgBlock'),
       'videoHide': $('#videoHide'),
       'flashHide': $('#flashHide'),
@@ -18,41 +21,33 @@ class Popup
       'downloadImgs': $('#downloadImgs')
     };
 
-    this._optionStateChanger = new OptionStateChanger();
-    this._imageDownloadRequester = new ImageDownloadRequester();
+    document.body.addEventListener('click', this._handleClickEvent.bind(this));
+    browser.storage.onChanged.addListener(this._updateElementState.bind(this));
 
-    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
-    document.body.addEventListener('click', this._onElementClick.bind(this));
-
-    this._onStorageChange();  // Initial
+    this._updateElementState();  // Initial
   }
 
-  _onStorageChange()
+  _handleClickEvent(event)
   {
-    this._updateElementState();
-  }
+    var optionId = event.target.id;
 
-  _onElementClick(event)
-  {
-    var elId = event.target.id;
-
-    if (!this.elements[elId])
+    if (!this._optionElements[optionId])
       return;
 
-    if (elId === 'downloadImgs')
+    if (optionId === 'downloadImgs')
       return this._imageDownloadRequester.requestDownload();
 
-    this._optionStateChanger.toggleOption(elId);
+    this._optionStateChanger.toggleOption(optionId);
   }
 
   _updateElementState()
   {
     browser.storage.local.get().then(data => {
-      for (var id in this.elements)
-        if (data[id])
-          this.elements[id].classList.add('active');
+      for (var optionId in this._optionElements)
+        if (data[optionId])
+          this._optionElements[optionId].classList.add('active');
         else
-          this.elements[id].classList.remove('active');
+          this._optionElements[optionId].classList.remove('active');
     });
   }
 }
@@ -85,5 +80,10 @@ class ImageDownloadRequester
 }
 
 
+$('#closeWindow').addEventListener('click', _ => {
+  window.close();
+});
+
+
 // Init
-new Popup();
+new OptionManager();

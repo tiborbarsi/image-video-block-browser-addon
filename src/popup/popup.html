@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="popup.css">
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div class="header">
-            __MSG_extensionName__
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <div class="container">
+        __MSG_extensionName__
+      </div>
+    </div>
+
+    <div class="options">
+      <div class="container">
+        <div id="imgBlock" class="btn" title="__MSG_imgBlockTooltip__">
+          __MSG_imgBlockText__
+          <div id="downloadImgs" class="btn-half" title="__MSG_downloadImagesTooltip__">&darr;</div>
         </div>
+        <div id="videoHide" class="btn" title="__MSG_videoHideTooltip__">__MSG_videoHideText__</div>
+        <div id="flashHide" class="btn" title="__MSG_flashHideTooltip__">__MSG_flashHideText__</div>
+        <div id="canvasHide" class="btn" title="__MSG_canvasHideTooltip__">__MSG_canvasHideText__</div>
+        <div id="svgHide" class="btn" title="__MSG_svgHideTooltip__">__MSG_svgHideText__</div>
+      </div>
+    </div>
 
-        <div class="options">
-            <div id="imgBlock" class="btn" title="__MSG_imgBlockTooltip__">
-              __MSG_imgBlockText__
-              <div id="downloadImgs" class="btn-half" title="__MSG_downloadImagesTooltip__">&darr;</div>
-            </div>
-            <div id="videoHide" class="btn" title="__MSG_videoHideTooltip__">__MSG_videoHideText__</div>
-            <div id="flashHide" class="btn" title="__MSG_flashHideTooltip__">__MSG_flashHideText__</div>
-            <div id="canvasHide" class="btn" title="__MSG_canvasHideTooltip__">__MSG_canvasHideText__</div>
-            <div id="svgHide" class="btn" title="__MSG_svgHideTooltip__">__MSG_svgHideText__</div>
-        </div>
+    <div class="footer">
+      <div class="container">
+        <a class="left" href="https://addons.mozilla.org/firefox/addon/image-video-block/">__MSG_leaveReview__</a>
+        <a id="closeWindow" class="right" href="#">__MSG_closeButton__</a>
+      </div>
+    </div>
 
-        <div class="footer">
-            <a href="https://addons.mozilla.org/firefox/addon/image-video-block/">__MSG_leaveReview__</a>
-        </div>
-
-        <!-- scripts -->
-        <script src="popup.js" charset="utf-8"></script>
-        <script src="../scripts/translator.js" charset="utf-8"></script>
-    </body>
+    <!-- scripts -->
+    <script src="popup.js" charset="utf-8"></script>
+    <script src="../scripts/translator.js" charset="utf-8"></script>
+  </body>
 </html>

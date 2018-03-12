@@ -2,13 +2,16 @@
 
 
 body {
+  min-width: 270px;
   margin: 0px;
-  width: 270px;
 
-  use-select: none;
+  user-select: none;
   -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+}
+
+.container {
+  max-width: 300px;
+  margin: 0px auto;
 }
 
 
@@ -27,18 +30,18 @@ body {
 
 
 .options {
+  padding: 10px 20px;
+
   background-color: hsl(0, 0%, 100%);
 }
 
 
 .footer {
-  margin-top: 14px;
-  padding: 5px;
+  padding: 10px 20px;
   overflow: auto;
 }
 
 .footer a {
-  float: right;
   text-decoration: none;
   font-size: 14px;
   color: hsl(0, 0%, 20%);
@@ -51,9 +54,8 @@ body {
 
 /* Buttons */
 .btn {
-  margin: 10px auto;
+  margin: 10px 0px;
   padding: 10px;
-  width: 80%;
 
   text-align: center;
   font-family: sans-serif;
@@ -108,4 +110,14 @@ body {
 
 .btn.active .btn-half {
   display: none;
+}
+
+
+/* Other */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }

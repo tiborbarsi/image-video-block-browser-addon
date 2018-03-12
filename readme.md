@@ -45,6 +45,9 @@ Keyboard Shortcuts:
 
 ## Changelog
 
+**2.4.1**
+- fix: Android responsive popup page
+
 **2.4**
 - Feat: Keyboard Shortcuts
 
