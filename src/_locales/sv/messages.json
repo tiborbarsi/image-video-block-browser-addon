@@ -15,6 +15,10 @@
     "message": "Lämna en recension",
     "description": "Link to the addon's web page."
   },
+  "closeButton": {
+    "message": "Stäng",
+    "description": "Close button of the addon's popup"
+  },
   "imgBlockText": {
     "message": "Blockera bilder",
     "description": "Text of the option."
