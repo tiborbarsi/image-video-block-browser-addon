@@ -45,6 +45,9 @@ Keyboard Shortcuts:
 
 ## Changelog
 
+**2.4.3**
+- Swedish translation updates (by Regnander)
+
 **2.4.2**
 - fix: Close button not working on android
 
