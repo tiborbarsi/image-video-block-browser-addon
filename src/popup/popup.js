@@ -82,6 +82,10 @@ class ImageDownloadRequester
 
 $('#closeWindow').addEventListener('click', _ => {
   window.close();
+
+  // Android popup close workaround
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1433604#c5
+  browser.tabs.update({active: true});
 });
 
 

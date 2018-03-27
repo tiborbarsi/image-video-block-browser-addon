@@ -45,6 +45,9 @@ Keyboard Shortcuts:
 
 ## Changelog
 
+**2.4.2**
+- fix: Close button not working on android
+
 **2.4.1**
 - fix: Android responsive popup page
 
