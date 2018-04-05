@@ -18,6 +18,8 @@ Keyboard Shortcuts:
 - *Ctrl+Shift+4* Toggle the svg hide option
 - *Ctrl+Shift+5* Toggle the canvas hide option
 
+Note: On macOS use *Command+Shift+1* to *5*
+
 
 ## Download
 
