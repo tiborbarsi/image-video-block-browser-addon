@@ -47,6 +47,9 @@ Note: On macOS use *Command+Shift+1* to *5*
 
 ## Changelog
 
+**2.5**
+- Badge settings indicator
+
 **2.4.4**
 - Keyboard shortcuts update
 

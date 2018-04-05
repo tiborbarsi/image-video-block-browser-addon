@@ -13,7 +13,7 @@ class ImageRequestBlocker
     browser.webRequest.onBeforeRequest.addListener(this._cancelRequest.bind(this),
       {urls: ['<all_urls>'], types: ['image', 'imageset']}, ['blocking']);
 
-    this._updateState();  // initial
+    this._updateState();  // Initial
   }
 
   _updateState()
@@ -127,7 +127,44 @@ class OptionStateChanger
 }
 
 
+/* Popup Badge Indicator */
+class PopupBadgeIndicator
+{
+  constructor()
+  {
+    this._badgeLetters = {
+      'imgBlock': 'i',
+      'videoHide': 'v',
+      'flashHide': 'f',
+      'canvasHide': 'c',
+      'svgHide': 's'
+    };
+
+    browser.storage.onChanged.addListener(this._setBadge.bind(this));
+    this._setBadge();  // Initial
+  }
+
+  _setBadge()
+  {
+    browser.storage.local.get().then(data => {
+      let badgeText = this._makeBadgeText(data);
+      browser.browserAction.setBadgeText({text: badgeText});
+    });
+  }
+
+  _makeBadgeText(settings)
+  {
+    let badgeText = '';
+    for (let k in this._badgeLetters)
+      if (settings[k]) badgeText += this._badgeLetters[k];
+
+    return badgeText;
+  }
+}
+
+
 // Init
 new ImageRequestBlocker();
 new ContextMenuHandler();
 new KeyboardCommandHandler();
+new PopupBadgeIndicator();
