@@ -47,31 +47,31 @@
   "commands": {
     "imgBlock": {
       "suggested_key": {
-        "default": "Ctrl+1"
+        "default": "Ctrl+Shift+1"
       },
       "description": "Toggle the image block option"
     },
     "videoHide": {
       "suggested_key": {
-        "default": "Ctrl+2"
+        "default": "Ctrl+Shift+2"
       },
       "description": "Toggle the video hide option"
     },
     "flashHide": {
       "suggested_key": {
-        "default": "Ctrl+3"
+        "default": "Ctrl+Shift+3"
       },
       "description": "Toggle the flash hide option"
     },
     "canvasHide": {
       "suggested_key": {
-        "default": "Ctrl+4"
+        "default": "Ctrl+Shift+4"
       },
       "description": "Toggle the canvas hide option"
     },
     "svgHide": {
       "suggested_key": {
-        "default": "Ctrl+5"
+        "default": "Ctrl+Shift+5"
       },
       "description": "Toggle the svg hide option"
     }

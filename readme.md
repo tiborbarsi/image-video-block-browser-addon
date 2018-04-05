@@ -12,11 +12,11 @@ Features:
 
 Keyboard Shortcuts:
 
-- *Ctrl+1* Toggle the image block option
-- *Ctrl+2* Toggle the video hide option
-- *Ctrl+3* Toggle the flash hide option
-- *Ctrl+4* Toggle the svg hide option
-- *Ctrl+5* Toggle the canvas hide option
+- *Ctrl+Shift+1* Toggle the image block option
+- *Ctrl+Shift+2* Toggle the video hide option
+- *Ctrl+Shift+3* Toggle the flash hide option
+- *Ctrl+Shift+4* Toggle the svg hide option
+- *Ctrl+Shift+5* Toggle the canvas hide option
 
 
 ## Download
@@ -44,6 +44,9 @@ Keyboard Shortcuts:
 
 
 ## Changelog
+
+**2.4.4**
+- Keyboard shortcuts update
 
 **2.4.3**
 - Swedish translation updates (by Regnander)
