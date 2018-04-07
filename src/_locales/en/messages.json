@@ -31,12 +31,20 @@
     "message": "Download blocked images on this page",
     "description": "Tooltip of the download images button"
   },
+  "mediaBlockText": {
+    "message": "Block Media",
+    "description": "Text of the option."
+  },
+  "mediaBlockTooltip": {
+    "message": "Blocks HTML5 video and audio",
+    "description": "Tooltip of the option."
+  },
   "videoHideText": {
     "message": "Hide Videos",
     "description": "Text of the option."
   },
   "videoHideTooltip": {
-    "message": "Hides videos (html5)",
+    "message": "Hides HTML5 videos",
     "description": "Tooltip of the option."
   },
   "flashHideText": {
@@ -44,7 +52,7 @@
     "description": "Text of the option."
   },
   "flashHideTooltip": {
-    "message": "Hides flash content (games, videos, etc.)",
+    "message": "Hides Flash content (games, videos, etc.)",
     "description": "Tooltip of the option."
   },
   "canvasHideText": {
@@ -52,7 +60,7 @@
     "description": "Text of the option."
   },
   "canvasHideTooltip": {
-    "message": "Hides canvas (html5 games, maps, pdf, etc.)",
+    "message": "Hides canvas (HTML5 games, maps, pdf, etc.)",
     "description": "Tooltip of the option."
   },
   "svgHideText": {
@@ -60,7 +68,7 @@
     "description": "Text of the option."
   },
   "svgHideTooltip": {
-    "message": "Hides svg (icons, player buttons, etc.)",
+    "message": "Hides SVG (icons, charts, player buttons, etc.)",
     "description": "Tooltip of the option."
   }
 }

@@ -1,24 +1,26 @@
 # Image Video Block
 
-A Browser add-on that **Blocks Images** and **Hides VIDEO(html5), FLASH, SVG and CANVAS** elements.
+A Browser add-on that **blocks or hiddes** visual elements (**Images, Video, Flash, Canvas, SVG**).
 
 Features:
 
-- Block Images (Does Not download)
-- Hide VIDEO (HTML5 videos)
-- Hide FLASH content
-- Hide CANVAS (HTML5 games, ...)
-- Hide SVG (Icons, YT player buttons, ...)
+- Block Images (blocks downloading)
+- Block Media (blocks HTML5 video and audio)
+- Hide Videos (hiddes HTML5 videos)
+- Hide Flash (Flash videos, games, etc.)
+- Hide Canvas (HTML5 games, maps, pdf, etc.)
+- Hide SVG (icons, charts, player buttons, etc.)
 
-Keyboard Shortcuts:
+Default Keyboard Shortcuts:
 
 - *Ctrl+Shift+1* Toggle the image block option
-- *Ctrl+Shift+2* Toggle the video hide option
-- *Ctrl+Shift+3* Toggle the flash hide option
-- *Ctrl+Shift+4* Toggle the svg hide option
-- *Ctrl+Shift+5* Toggle the canvas hide option
+- *Ctrl+Shift+2* Toggle the media block option
+- *Ctrl+Shift+3* Toggle the video hide option
+- *Ctrl+Shift+4* Toggle the flash hide option
+- *Ctrl+Shift+5* Toggle the svg hide option
+- *Ctrl+Shift+6* Toggle the canvas hide option
 
-Note: On macOS use *Command+Shift+1* to *5*
+Note: On macOS use *Command+Shift+1* to *6*
 
 
 ## Download
@@ -46,6 +48,9 @@ Note: On macOS use *Command+Shift+1* to *5*
 
 
 ## Changelog
+
+**2.6**
+- Media Block Option
 
 **2.5**
 - Badge settings indicator

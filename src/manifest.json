@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "2.5",
+  "version": "2.6",
   "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/tiborbarsi/image-video-block-browser-addon",
   "icons": {
@@ -51,27 +51,33 @@
       },
       "description": "Toggle the image block option"
     },
-    "videoHide": {
+    "mediaBlock": {
       "suggested_key": {
         "default": "Ctrl+Shift+2"
+      },
+      "description": "Toggle the media block option"
+    },
+    "videoHide": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+3"
       },
       "description": "Toggle the video hide option"
     },
     "flashHide": {
       "suggested_key": {
-        "default": "Ctrl+Shift+3"
+        "default": "Ctrl+Shift+4"
       },
       "description": "Toggle the flash hide option"
     },
     "canvasHide": {
       "suggested_key": {
-        "default": "Ctrl+Shift+4"
+        "default": "Ctrl+Shift+5"
       },
       "description": "Toggle the canvas hide option"
     },
     "svgHide": {
       "suggested_key": {
-        "default": "Ctrl+Shift+5"
+        "default": "Ctrl+Shift+6"
       },
       "description": "Toggle the svg hide option"
     }

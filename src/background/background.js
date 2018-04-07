@@ -2,16 +2,19 @@
 // jshint esversion: 6
 
 
-/* Image Request Blocker */
-class ImageRequestBlocker
+/* Request Blocker */
+class RequestBlocker
 {
   constructor()
   {
     this._imgBlock = false;
+    this._mediaBlock = false;
 
     browser.storage.onChanged.addListener(this._updateState.bind(this));
     browser.webRequest.onBeforeRequest.addListener(this._cancelRequest.bind(this),
-      {urls: ['<all_urls>'], types: ['image', 'imageset']}, ['blocking']);
+      {urls: ['<all_urls>'], types: ['image', 'imageset', 'media']}, ['blocking']);
+    browser.webRequest.onHeadersReceived.addListener(this._cancelXMLHttpRequest.bind(this),
+      {urls: ['<all_urls>'], types: ['xmlhttprequest']}, ['blocking', 'responseHeaders']);
 
     this._updateState();  // Initial
   }
@@ -20,12 +23,38 @@ class ImageRequestBlocker
   {
     browser.storage.local.get().then(data => {
       this._imgBlock = data.imgBlock;
+      this._mediaBlock = data.mediaBlock;
     });
   }
 
   _cancelRequest(details)
   {
-    return {cancel: this._imgBlock};
+    if (details.type === 'image' || details.type === 'imageset')
+      return {cancel: this._imgBlock};
+
+    else if (details.type === 'media')
+      return {cancel: this._mediaBlock};
+  }
+
+  _cancelXMLHttpRequest(details)
+  {
+    let mediaType = this._getContentTypeHeader(details.responseHeaders);
+
+    if (this._imgBlock && mediaType.startsWith('image/'))
+      return {redirectUrl: 'data:,'};  // Cancel request
+
+    else if (this._mediaBlock && mediaType.startsWith('video/'))
+      return {redirectUrl: 'data:,'};  // Cancel request
+
+    else if (this._mediaBlock && mediaType.startsWith('audio/'))
+      return {redirectUrl: 'data:,'};  // Cancel request
+  }
+
+  _getContentTypeHeader(headers)
+  {
+    for (let header of headers)
+      if (header.name.toLowerCase() === 'content-type')
+        return header.value;
   }
 }
 
@@ -37,6 +66,7 @@ class ContextMenuHandler
   {
     this._menuItems = [
       {title: browser.i18n.getMessage('imgBlockText'), popupId: 'imgBlock', checked: false},
+      {title: browser.i18n.getMessage('mediaBlockText'), popupId: 'mediaBlock', checked: false},
       {title: browser.i18n.getMessage('videoHideText'), popupId: 'videoHide', checked: false},
       {title: browser.i18n.getMessage('flashHideText'), popupId: 'flashHide', checked: false},
       {title: browser.i18n.getMessage('canvasHideText'), popupId: 'canvasHide', checked: false},
@@ -134,6 +164,7 @@ class PopupBadgeIndicator
   {
     this._badgeLetters = {
       'imgBlock': 'i',
+      'mediaBlock': 'm',
       'videoHide': 'v',
       'flashHide': 'f',
       'canvasHide': 'c',
@@ -164,7 +195,7 @@ class PopupBadgeIndicator
 
 
 // Init
-new ImageRequestBlocker();
+new RequestBlocker();
 new ContextMenuHandler();
 new KeyboardCommandHandler();
 new PopupBadgeIndicator();

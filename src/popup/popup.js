@@ -14,6 +14,7 @@ class OptionManager
 
     this._optionElements = {
       'imgBlock': $('#imgBlock'),
+      'mediaBlock': $('#mediaBlock'),
       'videoHide': $('#videoHide'),
       'flashHide': $('#flashHide'),
       'canvasHide': $('#canvasHide'),
