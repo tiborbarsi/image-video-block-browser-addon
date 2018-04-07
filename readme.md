@@ -1,12 +1,12 @@
 # Image Video Block
 
-A Browser add-on that **blocks or hiddes** visual elements (**Images, Video, Flash, Canvas, SVG**).
+A Browser add-on that **Blocks or Hides** visual elements (**Images, Video, Flash, Canvas, SVG**).
 
 Features:
 
 - Block Images (blocks downloading)
 - Block Media (blocks HTML5 video and audio)
-- Hide Videos (hiddes HTML5 videos)
+- Hide Videos (hides HTML5 videos)
 - Hide Flash (Flash videos, games, etc.)
 - Hide Canvas (HTML5 games, maps, pdf, etc.)
 - Hide SVG (icons, charts, player buttons, etc.)
