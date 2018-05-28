@@ -4,7 +4,7 @@
     "description": "Name of the extension."
   },
   "extensionDescription": {
-    "message": "Blockerar bilder och döljer elementen VIDEO, FLASH, SVG och CANVAS. Bilder laddas INTE ned.",
+    "message": "Blockerar eller döljer visuella element (bilder, video, Flash, Canvas, SVG).",
     "description": "Description of the extension."
   },
   "optionsPageText": {
@@ -31,12 +31,20 @@
     "message": "Ladda ned blockerade bilder på denna sida",
     "description": "Tooltip of the download images button"
   },
+  "mediaBlockText": {
+    "message": "Blockera media",
+    "description": "Text of the option."
+  },
+  "mediaBlockTooltip": {
+    "message": "Blockerar HTML5-video och -ljud",
+    "description": "Tooltip of the option."
+  },
   "videoHideText": {
     "message": "Dölj videor",
     "description": "Text of the option."
   },
   "videoHideTooltip": {
-    "message": "Döljer videor (HTML5)",
+    "message": "Döljer HTML5-videor",
     "description": "Tooltip of the option."
   },
   "flashHideText": {
@@ -60,7 +68,7 @@
     "description": "Text of the option."
   },
   "svgHideTooltip": {
-    "message": "Döljer SVG (ikoner, mediauppspelningsknappar, etc.)",
+    "message": "Döljer SVG (ikoner, diagram, mediauppspelningsknappar, etc.)",
     "description": "Tooltip of the option."
   }
 }
