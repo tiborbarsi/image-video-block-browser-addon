@@ -121,3 +121,77 @@ body {
 .right {
   float: right;
 }
+
+
+
+
+/* NEW */
+
+.settings {
+  padding: 20px 20px;
+}
+
+
+.site-add {
+  position: relative;
+}
+
+.site-add input {
+  float: left;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 5px;
+
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 60%);
+}
+
+.site-add a {
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  right: 0px;
+  padding: 0px 4px;
+
+  text-decoration: none;
+  color: hsl(0, 0%, 50%);
+  font-size: 22px;
+}
+
+.site-add .validation-error
+{
+  display: none;
+  margin: 10px 0px;
+  padding: 0px 5px 10px 5px;
+
+  background-color: hsl(40, 100%, 50%);
+}
+
+
+.site-list select {
+  width: 100%;
+
+  text-align: center;
+  font-family: sans-serif;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 30%);
+  border: 1px solid hsl(0, 0%, 70%);
+  cursor: pointer;
+}
+
+.site-list option {
+  padding: 5px;
+
+  text-align: center;
+}
+
+.site-list a {
+  float: right;
+
+  font-family: sans-serif;
+  font-size: 12px;
+
+  text-decoration: none;
+  color: hsl(0, 0%, 40%);
+}

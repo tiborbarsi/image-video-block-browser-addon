@@ -49,6 +49,9 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Changelog
 
+**3.0**
+- Site specific settings
+
 **2.6**
 - Media Block Option
 

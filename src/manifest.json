@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "2.6",
+  "version": "3.0",
   "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/tiborbarsi/image-video-block-browser-addon",
   "icons": {
@@ -11,6 +11,7 @@
   "permissions": [
     "storage",
     "<all_urls>",
+    "tabs",
     "webRequest",
     "webRequestBlocking",
     "menus"
