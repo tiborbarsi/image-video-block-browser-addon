@@ -11,13 +11,29 @@
     "message": "Use the toolbar button.",
     "description": "Text on the options page."
   },
+  "optionsPageKeyboardShortcutsTitle": {
+    "message": "Keyboard shortcuts",
+    "description": "Keyboard shortcuts title."
+  },
+  "optionsPageKeyboardShortcutsExamples": {
+    "message": "Examples: Ctrl+U, Ctrl+Shift+U, Alt+U, Alt+Shift+U, Command+U, MacCtrl+U, F2, Up, ...etc.",
+    "description": "Keyboard shortcuts examples."
+  },
+  "optionsPageKeyboardShortcutsNote": {
+    "message": "Note: On Macs, Ctrl is interpreted as Command. Use MacCtrl if you need Ctrl.",
+    "description": "Keyboard shortcuts note."
+  },
+  "optionsPageLearnMore": {
+    "message": "Learn more",
+    "description": "Text of the learn more link."
+  },
   "leaveReview": {
     "message": "Leave a review",
     "description": "Link to the addon's web page."
   },
   "closeButton": {
     "message": "Close",
-    "description": "Close button of the addon's popup"
+    "description": "Close button of the addon's popup."
   },
   "imgBlockText": {
     "message": "Block Images",
@@ -27,9 +43,13 @@
     "message": "Blocks image downloading",
     "description": "Tooltip of the option."
   },
+  "imgBlockToggleText": {
+    "message": "Toggle image block:",
+    "description": "Keyboard shortcut text."
+  },
   "downloadImagesTooltip": {
     "message": "Download blocked images on this page",
-    "description": "Tooltip of the download images button"
+    "description": "Tooltip of the download images button."
   },
   "mediaBlockText": {
     "message": "Block Media",
@@ -39,6 +59,10 @@
     "message": "Blocks HTML5 video and audio",
     "description": "Tooltip of the option."
   },
+  "mediaBlockToggleText": {
+    "message": "Toggle media block:",
+    "description": "Keyboard shortcut text."
+  },
   "videoHideText": {
     "message": "Hide Videos",
     "description": "Text of the option."
@@ -46,6 +70,10 @@
   "videoHideTooltip": {
     "message": "Hides HTML5 videos",
     "description": "Tooltip of the option."
+  },
+  "videoHideToggleText": {
+    "message": "Toggle video hide:",
+    "description": "Keyboard shortcut text."
   },
   "flashHideText": {
     "message": "Hide Flash",
@@ -55,6 +83,10 @@
     "message": "Hides Flash content (games, videos, etc.)",
     "description": "Tooltip of the option."
   },
+  "flashHideToggleText": {
+    "message": "Toggle flash hide:",
+    "description": "Keyboard shortcut text."
+  },
   "canvasHideText": {
     "message": "Hide Canvas",
     "description": "Text of the option."
@@ -63,6 +95,10 @@
     "message": "Hides canvas (HTML5 games, maps, pdf, etc.)",
     "description": "Tooltip of the option."
   },
+  "canvasHideToggleText": {
+    "message": "Toggle canvas hide:",
+    "description": "Keyboard shortcut text."
+  },
   "svgHideText": {
     "message": "Hide SVGs",
     "description": "Text of the option."
@@ -70,5 +106,9 @@
   "svgHideTooltip": {
     "message": "Hides SVG (icons, charts, player buttons, etc.)",
     "description": "Tooltip of the option."
+  },
+  "svgHideToggleText": {
+    "message": "Toggle svg hide:",
+    "description": "Keyboard shortcut text."
   }
 }
