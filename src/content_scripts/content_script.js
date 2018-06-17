@@ -90,7 +90,7 @@ class SettingsManager
 
     browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
 
-    this._initStorage();
+    this._initStorage();  // Initial
   }
 
   addSite(siteUrl)
@@ -159,16 +159,16 @@ class SettingsManager
 
   _onStorageChange(newData)
   {
-    if (newData.siteSettings) {
+    if (!newData.siteSettings)
+      return;
 
-      let oldSettings = this._cacheSiteSettings;
-      let newSettings = Object.assign({global: {}}, newData.siteSettings.newValue);
+    let oldSettings = this._cacheSiteSettings;
+    let newSettings = Object.assign({global: {}}, newData.siteSettings.newValue);
 
-      this._siteSettings = newSettings;
-      this._cacheSiteSettings = JSON.parse(JSON.stringify(this._siteSettings));
+    this._siteSettings = newSettings;
+    this._cacheSiteSettings = JSON.parse(JSON.stringify(this._siteSettings));
 
-      this._fireChanges(oldSettings, newSettings);
-    }
+    this._fireChanges(oldSettings, newSettings);
   }
 
   _fireChanges(oldSettings, newSettings)

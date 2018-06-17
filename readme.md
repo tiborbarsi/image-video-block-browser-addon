@@ -49,6 +49,9 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Changelog
 
+**3.2**
+- Context Menu Toggler
+
 **3.1**
 - Keyboard Shortcuts Changer
 

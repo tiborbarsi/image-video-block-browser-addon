@@ -59,4 +59,109 @@ class KeyboardShortcutsChanger
 }
 
 
+class ContextMenuToggler
+{
+  constructor(addonSettingsManager)
+  {
+    this._addonSettingsManager = addonSettingsManager;
+
+    this._element = $('#context-menu');
+
+    this._element.addEventListener('change', this._onElementChange.bind(this));
+    this._addonSettingsManager.onInit.addListener(this._initCheckedState.bind(this));
+  }
+
+  _initCheckedState()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    this._element.checked = addonSettings.contextMenuEnabled;
+  }
+
+  _onElementChange(e)
+  {
+    let checked = e.target.checked;
+    this._addonSettingsManager.setSettings({contextMenuEnabled: checked});
+  }
+}
+
+
+/* Addon Settings Manager */
+class AddonSettingsManager
+{
+  constructor()
+  {
+    this._addonSettings = {};
+    this._DEFAULT_SETTINGS = {contextMenuEnabled: true};
+
+    this.onChange = new EventEmitter();
+    this.onInit = new EventEmitter();
+
+    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
+
+    this._initStorage();  // Initial
+  }
+
+  getSettings()
+  {
+    let addonSettings = Object.assign({}, this._DEFAULT_SETTINGS, this._addonSettings);
+    return JSON.parse(JSON.stringify(addonSettings));
+  }
+
+  setSettings(newSettings)
+  {
+    this._addonSettings = Object.assign(this._addonSettings, newSettings);
+    this._saveSettings();
+  }
+
+  _saveSettings()
+  {
+    browser.storage.local.set({addonSettings: this._addonSettings});
+  }
+
+  _initStorage()
+  {
+    browser.storage.local.get().then(data => {
+      this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                          data.addonSettings);
+      // Initial
+      this.onChange.fire();
+      this.onInit.fire();
+    });
+  }
+
+  _onStorageChange(newData)
+  {
+    if (!newData.addonSettings)
+      return;
+
+    this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                        newData.addonSettings.newValue);
+    this.onChange.fire();
+  }
+}
+
+
+/* Event Emitter */
+class EventEmitter
+{
+  constructor()
+  {
+    this._listeners = [];
+  }
+
+  addListener(fn)
+  {
+    this._listeners.push(fn);
+  }
+
+  fire(data)
+  {
+    for (let listener of this._listeners)
+      listener(data);
+  }
+}
+
+
+// Init
 new KeyboardShortcutsChanger();
+new ContextMenuToggler(new AddonSettingsManager());

@@ -143,9 +143,10 @@ class BadgeTextMaker
 /* Context Menu Handler */
 class ContextMenuHandler
 {
-  constructor(settingsManager)
+  constructor(settingsManager, addonSettingsManager)
   {
     this._settingsManager = settingsManager;
+    this._addonSettingsManager = addonSettingsManager;
 
     this._menuItems = [
       {id: 'imgBlock', checked: false, title: browser.i18n.getMessage('imgBlockText') + ' (globally)'},
@@ -156,11 +157,19 @@ class ContextMenuHandler
       {id: 'svgHide', checked: false, title: browser.i18n.getMessage('svgHideText')},
     ];
 
-    this._settingsManager.onSiteSettingsChange.addListener(this._updateCheckedState.bind(this));
-
     browser.menus.onClicked.addListener(this._onMenuItemClick.bind(this));
+    this._settingsManager.onSiteSettingsChange.addListener(this._updateCheckedState.bind(this));
+    this._addonSettingsManager.onChange.addListener(this._createOrRemove.bind(this));
+  }
 
-    this._createMenuItems();
+  _createOrRemove()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+
+    if (addonSettings.contextMenuEnabled)
+      this._createMenuItems();
+    else
+      browser.menus.removeAll();
   }
 
   _createMenuItems()
@@ -243,7 +252,7 @@ class SettingsManager
 
     browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
 
-    this._initStorage();
+    this._initStorage();  // Initial
   }
 
   addSite(siteUrl)
@@ -312,16 +321,16 @@ class SettingsManager
 
   _onStorageChange(newData)
   {
-    if (newData.siteSettings) {
+    if (!newData.siteSettings)
+      return;
 
-      let oldSettings = this._cacheSiteSettings;
-      let newSettings = Object.assign({global: {}}, newData.siteSettings.newValue);
+    let oldSettings = this._cacheSiteSettings;
+    let newSettings = Object.assign({global: {}}, newData.siteSettings.newValue);
 
-      this._siteSettings = newSettings;
-      this._cacheSiteSettings = JSON.parse(JSON.stringify(this._siteSettings));
+    this._siteSettings = newSettings;
+    this._cacheSiteSettings = JSON.parse(JSON.stringify(this._siteSettings));
 
-      this._fireChanges(oldSettings, newSettings);
-    }
+    this._fireChanges(oldSettings, newSettings);
   }
 
   _fireChanges(oldSettings, newSettings)
@@ -335,6 +344,62 @@ class SettingsManager
         break;
       }
     }
+  }
+}
+
+
+/* Addon Settings Manager */
+class AddonSettingsManager
+{
+  constructor()
+  {
+    this._addonSettings = {};
+    this._DEFAULT_SETTINGS = {contextMenuEnabled: true};
+
+    this.onChange = new EventEmitter();
+    this.onInit = new EventEmitter();
+
+    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
+
+    this._initStorage();  // Initial
+  }
+
+  getSettings()
+  {
+    let addonSettings = Object.assign({}, this._DEFAULT_SETTINGS, this._addonSettings);
+    return JSON.parse(JSON.stringify(addonSettings));
+  }
+
+  setSettings(newSettings)
+  {
+    this._addonSettings = Object.assign(this._addonSettings, newSettings);
+    this._saveSettings();
+  }
+
+  _saveSettings()
+  {
+    browser.storage.local.set({addonSettings: this._addonSettings});
+  }
+
+  _initStorage()
+  {
+    browser.storage.local.get().then(data => {
+      this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                          data.addonSettings);
+      // Initial
+      this.onChange.fire();
+      this.onInit.fire();
+    });
+  }
+
+  _onStorageChange(newData)
+  {
+    if (!newData.addonSettings)
+      return;
+
+    this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                        newData.addonSettings.newValue);
+    this.onChange.fire();
   }
 }
 
@@ -389,5 +454,6 @@ let settingsManager = new SettingsManager();
 new RequestBlocker(settingsManager);
 new PopupBadgeIndicator(settingsManager);
 
-new ContextMenuHandler(settingsManager);
+let addonSettingsManager = new AddonSettingsManager();
+new ContextMenuHandler(settingsManager, addonSettingsManager);
 new KeyboardCommandHandler(settingsManager);

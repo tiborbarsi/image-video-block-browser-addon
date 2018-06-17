@@ -7,10 +7,6 @@
     "message": "Blocks or Hides visual elements (Images, Video, Flash, Canvas, SVG).",
     "description": "Description of the extension."
   },
-  "optionsPageText": {
-    "message": "Use the toolbar button.",
-    "description": "Text on the options page."
-  },
   "optionsPageKeyboardShortcutsTitle": {
     "message": "Keyboard shortcuts",
     "description": "Keyboard shortcuts title."
@@ -26,6 +22,14 @@
   "optionsPageLearnMore": {
     "message": "Learn more",
     "description": "Text of the learn more link."
+  },
+  "optionsPageContextMenuTitle": {
+    "message": "Context Menu",
+    "description": "Context menu title."
+  },
+  "optionsPageContextMenuLabel": {
+    "message": "Enable context menu",
+    "description": "Label of the checkbox."
   },
   "leaveReview": {
     "message": "Leave a review",
