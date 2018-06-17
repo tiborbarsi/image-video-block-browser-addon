@@ -149,7 +149,7 @@ class ContextMenuHandler
     this._addonSettingsManager = addonSettingsManager;
 
     this._menuItems = [
-      {id: 'imgBlock', checked: false, title: browser.i18n.getMessage('imgBlockText') + ' (globally)'},
+      {id: 'imgBlock', checked: false, title: browser.i18n.getMessage('imgBlockText')},
       {id: 'mediaBlock', checked: false, title: browser.i18n.getMessage('mediaBlockText')},
       {id: 'videoHide', checked: false, title: browser.i18n.getMessage('videoHideText')},
       {id: 'flashHide', checked: false, title: browser.i18n.getMessage('flashHideText')},
