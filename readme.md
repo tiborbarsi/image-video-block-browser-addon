@@ -40,6 +40,8 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ![](/images/context_menus.png "Context Menus")
 
+![](/images/addon_settings.png "Addon Settings")
+
 
 ## Contributors
 
