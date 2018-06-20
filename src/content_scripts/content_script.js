@@ -186,30 +186,6 @@ class SettingsManager
 }
 
 
-/* URL Utils */
-class URLUtils
-{
-  static getActiveTabUrl()
-  {
-    return browser.tabs.query({active: true, currentWindow: true})
-      .then(tabs => tabs[0].url)
-      .then(url => this.validateUrl(url) ? this.trimUrl(url) : '');
-  }
-
-  static trimUrl(url)
-  {
-    return url
-      .replace(/^https?:\/\//, '')
-      .replace(/\/.*/, '');
-  }
-
-  static validateUrl(url)
-  {
-    return /.+\..+/.test(url);
-  }
-}
-
-
 /* Event Emitter */
 class EventEmitter
 {
@@ -231,6 +207,37 @@ class EventEmitter
 }
 
 
+/* Initializer */
+class Initializer
+{
+  constructor()
+  {
+    if (document.head)
+      this._initializeClasses();
+    else
+      this._setMutationObserver();
+  }
+
+  _setMutationObserver()
+  {
+    let observer = new MutationObserver(mutationList => {
+      if (!document.head)
+        return;
+
+      observer.disconnect();
+      this._initializeClasses();
+    });
+    observer.observe(document.documentElement, {childList: true});
+  }
+
+  _initializeClasses()
+  {
+    // Init classes
+    let settingsManager = new SettingsManager();
+    let contentManager = new ContentManager(settingsManager);
+  }
+}
+
+
 // Init
-let settingsManager = new SettingsManager();
-let contentManager = new ContentManager(settingsManager);
+new Initializer();

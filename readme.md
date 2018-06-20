@@ -51,6 +51,9 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Changelog
 
+**3.2.1**
+- Fix: Showing content before hidding
+
 **3.2**
 - Context Menu Toggler
 
