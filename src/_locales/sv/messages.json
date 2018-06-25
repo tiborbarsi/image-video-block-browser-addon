@@ -4,12 +4,32 @@
     "description": "Name of the extension."
   },
   "extensionDescription": {
-    "message": "Blockerar eller döljer visuella element (bilder, video, Flash, Canvas, SVG).",
+    "message": "Blockerar eller döljer visuella element (bilder, video, Flash, canvas, SVG).",
     "description": "Description of the extension."
   },
-  "optionsPageText": {
-    "message": "Använd knappen i verktygsfältet.",
-    "description": "Text on the options page."
+  "optionsPageKeyboardShortcutsTitle": {
+    "message": "Kortkommandon",
+    "description": "Keyboard shortcuts title."
+  },
+  "optionsPageKeyboardShortcutsExamples": {
+    "message": "Exempel: Ctrl+U, Ctrl+Shift+U, Alt+U, Alt+Shift+U, Command+U, MacCtrl+U, F2, upp, ...etc.",
+    "description": "Keyboard shortcuts examples."
+  },
+  "optionsPageKeyboardShortcutsNote": {
+    "message": "OBS: På Mac översätts Ctrl till Command. Använd MacCtrl om du behöver Ctrl.",
+    "description": "Keyboard shortcuts note."
+  },
+  "optionsPageLearnMore": {
+    "message": "Läs mer",
+    "description": "Text of the learn more link."
+  },
+  "optionsPageContextMenuTitle": {
+    "message": "Högerklicksmeny",
+    "description": "Context menu title."
+  },
+  "optionsPageContextMenuLabel": {
+    "message": "Aktivera högerklicksmeny",
+    "description": "Label of the checkbox."
   },
   "leaveReview": {
     "message": "Lämna en recension",
@@ -17,7 +37,7 @@
   },
   "closeButton": {
     "message": "Stäng",
-    "description": "Close button of the addon's popup"
+    "description": "Close button of the addon's popup."
   },
   "imgBlockText": {
     "message": "Blockera bilder",
@@ -27,9 +47,13 @@
     "message": "Blockerar bilder från att laddas ned",
     "description": "Tooltip of the option."
   },
-    "downloadImagesTooltip": {
+  "imgBlockToggleText": {
+    "message": "Slå av/på blockering av bilder:",
+    "description": "Keyboard shortcut text."
+  },
+  "downloadImagesTooltip": {
     "message": "Ladda ned blockerade bilder på denna sida",
-    "description": "Tooltip of the download images button"
+    "description": "Tooltip of the download images button."
   },
   "mediaBlockText": {
     "message": "Blockera media",
@@ -39,6 +63,10 @@
     "message": "Blockerar HTML5-video och -ljud",
     "description": "Tooltip of the option."
   },
+  "mediaBlockToggleText": {
+    "message": "Slå på/av blockering av media:",
+    "description": "Keyboard shortcut text."
+  },
   "videoHideText": {
     "message": "Dölj videor",
     "description": "Text of the option."
@@ -46,6 +74,10 @@
   "videoHideTooltip": {
     "message": "Döljer HTML5-videor",
     "description": "Tooltip of the option."
+  },
+  "videoHideToggleText": {
+    "message": "Visa/dölj video:",
+    "description": "Keyboard shortcut text."
   },
   "flashHideText": {
     "message": "Dölj Flash",
@@ -55,6 +87,10 @@
     "message": "Döljer Flash-innehåll (spel, videor, etc.)",
     "description": "Tooltip of the option."
   },
+  "flashHideToggleText": {
+    "message": "Visa/dölj Flash:",
+    "description": "Keyboard shortcut text."
+  },
   "canvasHideText": {
     "message": "Dölj canvas",
     "description": "Text of the option."
@@ -63,6 +99,10 @@
     "message": "Döljer canvas (HTML5-spel, kartor, pdf, etc.)",
     "description": "Tooltip of the option."
   },
+  "canvasHideToggleText": {
+    "message": "Visa/dölj canvas:",
+    "description": "Keyboard shortcut text."
+  },
   "svgHideText": {
     "message": "Dölj SVG",
     "description": "Text of the option."
@@ -70,5 +110,9 @@
   "svgHideTooltip": {
     "message": "Döljer SVG (ikoner, diagram, mediauppspelningsknappar, etc.)",
     "description": "Tooltip of the option."
+  },
+  "svgHideToggleText": {
+    "message": "Visa/dölj SVG:",
+    "description": "Keyboard shortcut text."
   }
 }
