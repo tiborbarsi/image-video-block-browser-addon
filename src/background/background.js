@@ -156,6 +156,7 @@ class ContextMenuHandler
       {id: 'canvasHide', checked: false, title: browser.i18n.getMessage('canvasHideText')},
       {id: 'svgHide', checked: false, title: browser.i18n.getMessage('svgHideText')},
     ];
+    this._created = false;
 
     browser.menus.onClicked.addListener(this._onMenuItemClick.bind(this));
     this._settingsManager.onSiteSettingsChange.addListener(this._updateCheckedState.bind(this));
@@ -169,11 +170,14 @@ class ContextMenuHandler
     if (addonSettings.contextMenuEnabled)
       this._createMenuItems();
     else
-      browser.menus.removeAll();
+      this._removeMenuItems();
   }
 
   _createMenuItems()
   {
+    if (this._created)
+      return;
+
     let siteSettings = this._settingsManager.getSiteSettings('global');
 
     for (let item of this._menuItems) {
@@ -186,6 +190,13 @@ class ContextMenuHandler
         contexts: ['page', 'editable', 'frame', 'link', 'image', 'video']
       });
     }
+    this._created = true;
+  }
+
+  _removeMenuItems()
+  {
+    browser.menus.removeAll();
+    this._created = false;
   }
 
   _updateCheckedState()
