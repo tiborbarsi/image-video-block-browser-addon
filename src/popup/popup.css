@@ -195,3 +195,19 @@ body {
   text-decoration: none;
   color: hsl(0, 0%, 40%);
 }
+
+
+/* Password Protection */
+#unlocker {
+  padding: 10px;
+
+  text-align: center;
+  font-size: 10px;
+  font-family: sans-serif;
+  color: hsl(0, 0%, 0%);
+  cursor: default;
+}
+
+#content {
+  display: none;  /* Default value */
+}

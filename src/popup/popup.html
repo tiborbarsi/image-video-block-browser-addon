@@ -8,46 +8,56 @@
   </head>
   <body>
 
-    <div class="header">
-      <div class="container">
-        __MSG_extensionName__
-      </div>
+    <div id="unlocker">
+      <h2>__MSG_popupUnlockerText__</h2>
+      <input id="password-input" type="password">
+      <button id="unlock-btn">__MSG_popupUnlockerBtnText__</button>
     </div>
 
-    <div class="settings">
-      <div class="container">
-        <div class="site-add">
-          <input type="text" placeholder="example.com">
-          <a href="#">&oplus;</a>
-          <div class="validation-error">Please enter a valid URL.</div>
-        </div>
-        <div class="site-list">
-          <select></select>
-          <br>
-          <a href="#">Remove Site</a>
-        </div>
-      </div>
-    </div>
+    <div id="content">
 
-    <div class="options">
-      <div class="container">
-        <div id="imgBlock" class="btn" title="__MSG_imgBlockTooltip__">
-          __MSG_imgBlockText__
-          <div id="downloadImgs" class="btn-half" title="__MSG_downloadImagesTooltip__">&darr;</div>
+      <div class="header">
+        <div class="container">
+          __MSG_extensionName__
         </div>
-        <div id="mediaBlock" class="btn" title="__MSG_mediaBlockTooltip__">__MSG_mediaBlockText__</div>
-        <div id="videoHide" class="btn" title="__MSG_videoHideTooltip__">__MSG_videoHideText__</div>
-        <div id="flashHide" class="btn" title="__MSG_flashHideTooltip__">__MSG_flashHideText__</div>
-        <div id="canvasHide" class="btn" title="__MSG_canvasHideTooltip__">__MSG_canvasHideText__</div>
-        <div id="svgHide" class="btn" title="__MSG_svgHideTooltip__">__MSG_svgHideText__</div>
       </div>
-    </div>
 
-    <div class="footer">
-      <div class="container">
-        <a class="left" href="https://addons.mozilla.org/firefox/addon/image-video-block/">__MSG_leaveReview__</a>
-        <a id="closeWindow" class="right" href="#">__MSG_closeButton__</a>
+      <div class="settings">
+        <div class="container">
+          <div class="site-add">
+            <input type="text" placeholder="example.com">
+            <a href="#">&oplus;</a>
+            <div class="validation-error">Please enter a valid URL.</div>
+          </div>
+          <div class="site-list">
+            <select></select>
+            <br>
+            <a href="#">Remove Site</a>
+          </div>
+        </div>
       </div>
+
+      <div class="options">
+        <div class="container">
+          <div id="imgBlock" class="btn" title="__MSG_imgBlockTooltip__">
+            __MSG_imgBlockText__
+            <div id="downloadImgs" class="btn-half" title="__MSG_downloadImagesTooltip__">&darr;</div>
+          </div>
+          <div id="mediaBlock" class="btn" title="__MSG_mediaBlockTooltip__">__MSG_mediaBlockText__</div>
+          <div id="videoHide" class="btn" title="__MSG_videoHideTooltip__">__MSG_videoHideText__</div>
+          <div id="flashHide" class="btn" title="__MSG_flashHideTooltip__">__MSG_flashHideText__</div>
+          <div id="canvasHide" class="btn" title="__MSG_canvasHideTooltip__">__MSG_canvasHideText__</div>
+          <div id="svgHide" class="btn" title="__MSG_svgHideTooltip__">__MSG_svgHideText__</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="container">
+          <a class="left" href="https://addons.mozilla.org/firefox/addon/image-video-block/">__MSG_leaveReview__</a>
+          <a id="closeWindow" class="right" href="#">__MSG_closeButton__</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- scripts -->

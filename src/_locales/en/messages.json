@@ -31,6 +31,18 @@
     "message": "Enable context menu",
     "description": "Label of the checkbox."
   },
+  "optionsPagePasswordTitle": {
+    "message": "Password protection",
+    "description": "Password protection title."
+  },
+  "optionsPagePasswordLabel": {
+    "message": "Enable password protection",
+    "description": "Password protection label."
+  },
+  "optionsPagePasswordNote": {
+    "message": "Note: To block access to about:addons use",
+    "description": "Password protection note."
+  },
   "leaveReview": {
     "message": "Leave a review",
     "description": "Link to the addon's web page."
@@ -38,6 +50,14 @@
   "closeButton": {
     "message": "Close",
     "description": "Close button of the addon's popup."
+  },
+  "popupUnlockerText": {
+    "message": "Please enter the password",
+    "description": "Popup unlocker text."
+  },
+  "popupUnlockerBtnText": {
+    "message": "Unlock",
+    "description": "The unlock button text."
   },
   "imgBlockText": {
     "message": "Block Images",

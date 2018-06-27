@@ -265,6 +265,48 @@ class ImageDownloadRequester
 }
 
 
+/* Password Protection Controller */
+class PasswordProtectionController
+{
+  constructor(addonSettingsManager)
+  {
+    this._addonSettingsManager = addonSettingsManager;
+
+    this._elements = {
+      'unlocker': $('#unlocker'),
+      'content': $('#content'),
+      'passwordInput': $('#password-input'),
+      'unlockBtn': $('#unlock-btn')
+    };
+
+    this._addonSettingsManager.onInit.addListener(this._toggleAccess.bind(this));
+
+    this._elements.unlockBtn.addEventListener('click', this._unlock.bind(this));
+    this._elements.passwordInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') this._unlock();
+    });
+  }
+
+  _toggleAccess()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    let enabled = addonSettings.passwordEnabled;
+
+    this._elements.unlocker.style.display = enabled ? 'block' : 'none';
+    this._elements.content.style.display = enabled ? 'none' : 'block';
+  }
+
+  _unlock()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    let unlocked = this._elements.passwordInput.value === addonSettings.password;
+
+    this._elements.unlocker.style.display = unlocked ? 'none' : 'block';
+    this._elements.content.style.display = unlocked ? 'block' : 'none';
+  }
+}
+
+
 /* Settings Manager */
 class SettingsManager
 {
@@ -374,6 +416,62 @@ class SettingsManager
 }
 
 
+/* Addon Settings Manager */
+class AddonSettingsManager
+{
+  constructor()
+  {
+    this._addonSettings = {};
+    this._DEFAULT_SETTINGS = {contextMenuEnabled: true, passwordEnabled: false, password: ''};
+
+    this.onChange = new EventEmitter();
+    this.onInit = new EventEmitter();
+
+    browser.storage.onChanged.addListener(this._onStorageChange.bind(this));
+
+    this._initStorage();  // Initial
+  }
+
+  getSettings()
+  {
+    let addonSettings = Object.assign({}, this._DEFAULT_SETTINGS, this._addonSettings);
+    return JSON.parse(JSON.stringify(addonSettings));
+  }
+
+  setSettings(newSettings)
+  {
+    this._addonSettings = Object.assign(this._addonSettings, newSettings);
+    this._saveSettings();
+  }
+
+  _saveSettings()
+  {
+    browser.storage.local.set({addonSettings: this._addonSettings});
+  }
+
+  _initStorage()
+  {
+    browser.storage.local.get().then(data => {
+      this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                          data.addonSettings);
+      // Initial
+      this.onChange.fire();
+      this.onInit.fire();
+    });
+  }
+
+  _onStorageChange(newData)
+  {
+    if (!newData.addonSettings)
+      return;
+
+    this._addonSettings = Object.assign(this._DEFAULT_SETTINGS,
+                                        newData.addonSettings.newValue);
+    this.onChange.fire();
+  }
+}
+
+
 /* URL Utils */
 class URLUtils
 {
@@ -435,3 +533,5 @@ let siteListController = new SiteListController(settingsManager);
 let selectSiteHandler = new SelectSiteHandler(settingsManager, addSiteController, siteListController);
 let removeSiteController = new RemoveSiteController(settingsManager, siteListController);
 let siteSettingsController = new SiteSettingsController(settingsManager, siteListController);
+let addonSettingsManager = new AddonSettingsManager();
+let passwordProtectionController = new PasswordProtectionController(addonSettingsManager);

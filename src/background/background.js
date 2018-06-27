@@ -354,7 +354,7 @@ class AddonSettingsManager
   constructor()
   {
     this._addonSettings = {};
-    this._DEFAULT_SETTINGS = {contextMenuEnabled: true};
+    this._DEFAULT_SETTINGS = {contextMenuEnabled: true, passwordEnabled: false, password: ''};
 
     this.onChange = new EventEmitter();
     this.onInit = new EventEmitter();

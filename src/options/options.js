@@ -85,13 +85,59 @@ class ContextMenuToggler
 }
 
 
+/* Password Protection Settings Manager */
+class PasswordProtectionSettingsManager
+{
+  constructor(addonSettingsManager)
+  {
+    this._addonSettingsManager = addonSettingsManager;
+
+    this._elements = {
+      'checkbox': $('#pp-checkbox'),
+      'input': $('#pp-input')
+    };
+
+    this._addonSettingsManager.onInit.addListener(this._changeCheckboxState.bind(this));
+    this._addonSettingsManager.onChange.addListener(this._changeInputState.bind(this));
+
+    this._elements.checkbox.addEventListener('change', this._onCheckboxChange.bind(this));
+    this._elements.input.addEventListener('change', this._onInputChange.bind(this));
+  }
+
+  _changeCheckboxState()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    this._elements.checkbox.checked = addonSettings.passwordEnabled;
+  }
+
+  _changeInputState()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    this._elements.input.disabled = !addonSettings.passwordEnabled;
+    this._elements.input.value = addonSettings.password;
+  }
+
+  _onCheckboxChange()
+  {
+    let state = this._elements.checkbox.checked;
+    this._addonSettingsManager.setSettings({passwordEnabled: state});
+  }
+
+  _onInputChange()
+  {
+    let password = this._elements.input.value;
+    this._addonSettingsManager.setSettings({password: password});
+  }
+}
+
+
 /* Addon Settings Manager */
 class AddonSettingsManager
 {
   constructor()
   {
     this._addonSettings = {};
-    this._DEFAULT_SETTINGS = {contextMenuEnabled: true};
+    this._DEFAULT_SETTINGS = {contextMenuEnabled: true, passwordEnabled: false, password: ''};
 
     this.onChange = new EventEmitter();
     this.onInit = new EventEmitter();
@@ -163,5 +209,7 @@ class EventEmitter
 
 
 // Init
+let addonSettingsManager = new AddonSettingsManager();
 new KeyboardShortcutsChanger();
-new ContextMenuToggler(new AddonSettingsManager());
+new ContextMenuToggler(addonSettingsManager);
+new PasswordProtectionSettingsManager(addonSettingsManager);
