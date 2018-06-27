@@ -51,6 +51,9 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Changelog
 
+**3.3.1**
+- Translation updates
+
 **3.3**
 - Password protection
 

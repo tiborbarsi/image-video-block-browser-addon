@@ -59,6 +59,14 @@
     "message": "Unlock",
     "description": "The unlock button text."
   },
+  "popupValidationErrorText": {
+    "message": "Please enter a valid URL.",
+    "description": "The URL validation error text."
+  },
+  "popupRemoveSiteText": {
+    "message": "Remove Site",
+    "description": "Text of the remove site button."
+  },
   "imgBlockText": {
     "message": "Block Images",
     "description": "Text of the option."
