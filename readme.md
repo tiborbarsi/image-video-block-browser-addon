@@ -51,6 +51,9 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Changelog
 
+**3.4**
+- Disable keyboard shortcuts option
+
 **3.3.2**
 - bugfix: Console context menu errors
 

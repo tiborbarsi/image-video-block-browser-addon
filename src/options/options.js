@@ -7,8 +7,10 @@ var $ = document.querySelector.bind(document);
 
 class KeyboardShortcutsChanger
 {
-  constructor()
+  constructor(addonSettingsManager)
   {
+    this._addonSettingsManager = addonSettingsManager;
+
     this._elements = {
       'imgBlock': $('#keyboard-imgBlock'),
       'mediaBlock': $('#keyboard-mediaBlock'),
@@ -18,10 +20,21 @@ class KeyboardShortcutsChanger
       'svgHide': $('#keyboard-svgHide')
     };
 
+    this._addonSettingsManager.onChange.addListener(this._enableOrDisableInput.bind(this));
+
     for (let e in this._elements)
       this._elements[e].addEventListener('change', this._onElementValueChange.bind(this));
 
     this._populate();  // Initial
+  }
+
+  _enableOrDisableInput()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    let disabled = !addonSettings.keyboardShortcutsEnabled;
+
+    for (let e in this._elements)
+      this._elements[e].disabled = disabled;
   }
 
   _populate()
@@ -55,6 +68,32 @@ class KeyboardShortcutsChanger
   _displayValidateStatus(el, success)
   {
     el.style.border = success ? '2px solid GREEN' : '2px solid RED';
+  }
+}
+
+
+class KeyboardShortcutsToggler
+{
+  constructor(addonSettingsManager)
+  {
+    this._addonSettingsManager = addonSettingsManager;
+
+    this._element = $('#keyboard-checkbox');
+
+    this._element.addEventListener('change', this._onElementChange.bind(this));
+    this._addonSettingsManager.onInit.addListener(this._initCheckedState.bind(this));
+  }
+
+  _initCheckedState()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    this._element.checked = addonSettings.keyboardShortcutsEnabled;
+  }
+
+  _onElementChange(e)
+  {
+    let checked = e.target.checked;
+    this._addonSettingsManager.setSettings({keyboardShortcutsEnabled: checked});
   }
 }
 
@@ -137,7 +176,13 @@ class AddonSettingsManager
   constructor()
   {
     this._addonSettings = {};
-    this._DEFAULT_SETTINGS = {contextMenuEnabled: true, passwordEnabled: false, password: ''};
+
+    this._DEFAULT_SETTINGS = {
+      keyboardShortcutsEnabled: true,
+      contextMenuEnabled: true,
+      passwordEnabled: false,
+      password: ''
+    };
 
     this.onChange = new EventEmitter();
     this.onInit = new EventEmitter();
@@ -210,6 +255,7 @@ class EventEmitter
 
 // Init
 let addonSettingsManager = new AddonSettingsManager();
-new KeyboardShortcutsChanger();
+new KeyboardShortcutsChanger(addonSettingsManager);
+new KeyboardShortcutsToggler(addonSettingsManager);
 new ContextMenuToggler(addonSettingsManager);
 new PasswordProtectionSettingsManager(addonSettingsManager);

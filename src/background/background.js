@@ -233,15 +233,28 @@ class ContextMenuHandler
 /* Keyboard Command Handler */
 class KeyboardCommandHandler
 {
-  constructor(settingsManager)
+  constructor(settingsManager, addonSettingsManager)
   {
     this._settingsManager = settingsManager;
+    this._addonSettingsManager = addonSettingsManager;
+
+    this._enabled = true;
+    this._addonSettingsManager.onChange.addListener(this._updateEnabled.bind(this));
 
     browser.commands.onCommand.addListener(this._onCommand.bind(this));
   }
 
+  _updateEnabled()
+  {
+    let addonSettings = this._addonSettingsManager.getSettings();
+    this._enabled = addonSettings.keyboardShortcutsEnabled;
+  }
+
   _onCommand(command)
   {
+    if (!this._enabled)
+      return;
+
     let siteSettings = this._settingsManager.getSiteSettings('global');
     siteSettings[command] = !siteSettings[command];
 
@@ -365,7 +378,13 @@ class AddonSettingsManager
   constructor()
   {
     this._addonSettings = {};
-    this._DEFAULT_SETTINGS = {contextMenuEnabled: true, passwordEnabled: false, password: ''};
+
+    this._DEFAULT_SETTINGS = {
+      keyboardShortcutsEnabled: true,
+      contextMenuEnabled: true,
+      passwordEnabled: false,
+      password: ''
+    };
 
     this.onChange = new EventEmitter();
     this.onInit = new EventEmitter();
@@ -467,4 +486,4 @@ new PopupBadgeIndicator(settingsManager);
 
 let addonSettingsManager = new AddonSettingsManager();
 new ContextMenuHandler(settingsManager, addonSettingsManager);
-new KeyboardCommandHandler(settingsManager);
+new KeyboardCommandHandler(settingsManager, addonSettingsManager);

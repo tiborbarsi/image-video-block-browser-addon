@@ -19,6 +19,10 @@
     "message": "Note: On Macs, Ctrl is interpreted as Command. Use MacCtrl if you need Ctrl.",
     "description": "Keyboard shortcuts note."
   },
+  "optionsPageKeyboardShortcutsLabel": {
+    "message": "Enable keyboard shortcuts",
+    "description": "Label of the checkbox."
+  },
   "optionsPageLearnMore": {
     "message": "Learn more",
     "description": "Text of the learn more link."
