@@ -5,6 +5,7 @@
 var $ = document.querySelector.bind(document);
 
 
+/* Keyboard Shortcuts Changer */
 class KeyboardShortcutsChanger
 {
   constructor(addonSettingsManager)
@@ -72,6 +73,7 @@ class KeyboardShortcutsChanger
 }
 
 
+/* Keyboard Shortcuts Toggler */
 class KeyboardShortcutsToggler
 {
   constructor(addonSettingsManager)
@@ -98,6 +100,7 @@ class KeyboardShortcutsToggler
 }
 
 
+/* Context Menu Toggler */
 class ContextMenuToggler
 {
   constructor(addonSettingsManager)
