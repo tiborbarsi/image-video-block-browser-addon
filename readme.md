@@ -1,6 +1,6 @@
 # Image Video Block
 
-A Browser add-on that **Blocks or Hides** visual elements (**Images, Video, Flash, Canvas, SVG**).
+A web browser add-on that **Blocks or Hides** visual elements (**Images, Video, Flash, Canvas, SVG**).
 
 Features:
 
@@ -25,7 +25,7 @@ Note: On macOS use *Command+Shift+1* to *6*
 
 ## Download
 
-*for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/image-video-block/)*
+*for [Firefox](https://addons.mozilla.org/firefox/addon/image-video-block/)*
 
 
 ## Images
